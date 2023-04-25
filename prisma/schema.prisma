@@ -32,5 +32,7 @@ model Coordinates {
   id         String @id @default(uuid())
   caneId     String
   latitude   String
-  longtitude String
+  longitude String
+
+  createdAt DateTime @default(now())
 }
