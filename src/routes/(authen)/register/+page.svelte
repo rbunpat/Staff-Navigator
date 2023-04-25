@@ -1,0 +1,46 @@
+<script>
+    import { Turnstile } from 'svelte-turnstile';
+
+    export let form;
+</script>
+
+<div class="max-w-md mx-auto my-8 bg-grey-700 p-6 rounded-md shadow-md">
+    <h1 class="text-2xl text-white font-bold mb-4">Register</h1>
+
+	{#if form?.invalid}
+    <p class="text-red-500 mb-4">Username, password and cane serial number is required</p>
+    {/if}
+
+    {#if form?.captcha}
+    <p class="text-red-500 mb-4">CAPTCHA error, please try again</p>
+    {/if}
+
+    {#if form?.email}
+    <p class="text-red-500 mb-4">CAPTCHA error, please try again</p>
+    {/if}
+
+    {#if form?.cane}
+    <p class="text-red-500 mb-4">CAPTCHA error, please try again</p>
+    {/if}
+
+    <form method="POST" action="?/register">
+      <div class="mb-4">
+        <label for="email" class="block text-white font-bold mb-2">Email</label>
+        <input type="email" name="email" id="email" autocomplete="on" placeholder="johndoe@example.com" required class="w-full px-3 py-2 border bg-gray-800 border-gray-700 rounded-md text-white transition-all">
+      </div>
+      <div class="mb-4">
+        <label for="password" class="block text-white font-bold mb-2">Password</label>
+        <input type="password" name="password" id="password" autocomplete="off" placeholder="••••••••" required class="w-full px-3 py-2 border bg-gray-800 border-gray-700 rounded-md text-white transition-all">
+      </div>
+      <div class="mb-4">
+        <label for="caneserial" class="block text-white font-bold mb-2">Cane Serial Number</label>
+        <input type="number" name="caneserial" id="caneserial" autocomplete="off" placeholder="12345" required class="w-full px-3 py-2 border bg-gray-800 border-gray-700 rounded-md text-white transition-all">
+      </div>
+      <div class="mb-4 flex justify-center">
+        <Turnstile siteKey="0x4AAAAAAAEGoJC589b43B7R" />
+      </div>
+      <div class="text-center mb-4">
+        <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md transition-all">Register</button>
+      </div>
+    </form>
+  </div>

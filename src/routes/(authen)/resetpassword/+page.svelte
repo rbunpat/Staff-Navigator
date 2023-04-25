@@ -1,0 +1,22 @@
+<script lang="ts">
+    export let data: any;
+    export let form;
+</script>
+
+<div class="max-w-md mx-auto my-8 bg-grey-700 p-6 rounded-md shadow-md">
+    <h1 class="text-2xl text-white font-bold mb-4">Reset Password</h1>
+    {#if form?.invalid}
+    <p class="text-red-500 mb-4">Token Invalid</p>
+    {/if}
+    <form method="POST" action="?/resetpassword">
+      <div class="mb-4">
+        <label for="password" class="block text-white font-bold mb-2">New Password</label>
+        <input type="password" name="password" id="password" autocomplete="off" placeholder="••••••••" required class="w-full px-3 py-2 border bg-gray-800 border-gray-700 rounded-md text-white transition-all">
+      </div>
+      <input type="hidden" name="id" id="id" hidden value="{data.id}">
+      <input type="hidden" name="token" id="token" hidden value="{data.token}">
+      <div class="text-center">
+        <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md transition-all">Reset Password</button>
+      </div>
+    </form>
+  </div>
