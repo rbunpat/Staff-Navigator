@@ -14,19 +14,7 @@
           <li><a href="/" class="text-green-400">Home</a></li>
           <li><a href="/map">Map</a></li>
           <li><a href="/history">History</a></li>
-          <form
-          class="logout"
-          action="/logout"
-          method="POST"
-          use:enhance={() => {
-            return async ({ result }) => {
-              invalidateAll()
-              await applyAction(result)
-            }
-          }}
-        >
-          <button type="submit"><li><a class="text-red-400">Logout</a></li></button>
-        </form>
+          <li><a class="text-red-400" href="/logout">Logout</a></li>
         </ul>
       </div>
     </div>
