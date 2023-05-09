@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /logout
+Disallow: /map
+Disallow: /history
+Disallow: /settings
+Disallow: /resetpassword

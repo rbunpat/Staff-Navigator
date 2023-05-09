@@ -13,7 +13,7 @@
         </label>
         <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
           {#if data.user == false}
-          <li><a href="/" class="text-green-400">Home</a></li>
+          <li><a href="/" class="text-green-500 dark:text-green-400">Home</a></li>
           <li><a href="/login">Login</a></li>
           <li><a href="/register">Register</a></li>
           {/if}
@@ -21,19 +21,7 @@
           <li><a href="/" class="text-green-400">Home</a></li>
           <li><a href="/map">Map</a></li>
           <li><a href="/history">History</a></li>
-          <form
-          class="logout"
-          action="/logout"
-          method="POST"
-          use:enhance={() => {
-            return async ({ result }) => {
-              invalidateAll()
-              await applyAction(result)
-            }
-          }}
-        >
-          <button type="submit"><li><a class="text-red-400">Logout</a></li></button>
-        </form>
+          <li><a class="text-red-400" href="/logout">Logout</a></li>
         {/if}
         </ul>
       </div>
