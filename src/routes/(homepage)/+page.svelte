@@ -10,7 +10,7 @@
         <h1 class="text-5xl font-bold">Please Login</h1>
         {/if}
         {#if data.user == true}
-        <h1 class="text-5xl font-bold">Hi, {data.email}</h1>
+        <h1 class="text-3xl md:text-5xl font-bold">Hi, <br/> {data.email}</h1>
         {/if}
         <p class="py-6"></p>
         {#if data.user == false}
