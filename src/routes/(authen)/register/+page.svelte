@@ -16,11 +16,12 @@
     {/if}
 
     {#if form?.email}
-    <p class="text-red-500 mb-4">CAPTCHA error, please try again</p>
+    <p class="text-red-500 mb-4">Email already registered</p>
     {/if}
 
     {#if form?.cane}
-    <p class="text-red-500 mb-4">CAPTCHA error, please try again</p>
+    <p class="text-red-500 mb-4">Cane Serial Number already registered
+    </p>
     {/if}
 
     <form method="POST" action="?/register">
