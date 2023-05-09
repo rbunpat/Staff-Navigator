@@ -28,10 +28,18 @@ model PasswordReset {
   createdAt DateTime @default(now())
 }
 
+model DevToken {
+  id       String @id @default(uuid())
+  caneId   String
+  devToken String
+
+  createdAt DateTime @default(now())
+}
+
 model Coordinates {
-  id         String @id @default(uuid())
-  caneId     String
-  latitude   String
+  id        String @id @default(uuid())
+  caneId    String
+  latitude  String
   longitude String
 
   createdAt DateTime @default(now())
