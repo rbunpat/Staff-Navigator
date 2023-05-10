@@ -14,6 +14,7 @@
           <li><a href="/" class="text-green-400">Home</a></li>
           <li><a href="/map">Map</a></li>
           <li><a href="/history">History</a></li>
+          <li><a href="/settings">Settings</a></li>
           <li><a class="text-red-400" href="/logout">Logout</a></li>
         </ul>
       </div>
