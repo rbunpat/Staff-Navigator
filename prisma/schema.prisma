@@ -30,7 +30,7 @@ model PasswordReset {
 
 model DevToken {
   id       String @id @default(uuid())
-  caneId   String
+  caneId   String @unique
   devToken String
 
   createdAt DateTime @default(now())
