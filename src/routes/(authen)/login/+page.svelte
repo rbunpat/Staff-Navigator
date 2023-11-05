@@ -1,13 +1,12 @@
 <script lang="ts">
 	export let form: any;
     export let logoUrl: string = import.meta.env.VITE_LOGOURL;
-    export const demoUsername: string = import.meta.env.VITE_DEMO_USERNAME;
-    export const demoPassword: string = import.meta.env.VITE_DEMO_PASSWORD;
+    import { demoUsername, demoPassword } from '$lib/demoCredentials';
 
     export function fillDemoCredentials() {
         console.log('sadasd')
-        const emailInput = document.getElementById('email');
-        const passwordInput = document.getElementById('password');
+        const emailInput: any = document.getElementById('email');
+        const passwordInput: any = document.getElementById('password');
         
             emailInput.value = {demoUsername}; // Demo email
             passwordInput.value = {demoPassword}; // Demo password
