@@ -9,12 +9,18 @@ export const actions = {
         //get login data from body
         const data = await request.formData()
         const password = data.get('password')
+        const passwordConfirm = data.get('confirm-password')
         const id = data.get('id')
         const token = data.get('token')
 
         //validate data type of user input
         if (typeof password !== 'string' || typeof id !== 'string' || typeof token !== 'string' || !password || !id || !token) {
             return fail(400, { invalid: true })
+        }
+
+        //validate password
+        if (password !== passwordConfirm) {
+            return fail(400, { password: true })
         }
 
         //check if userid in passreset db
