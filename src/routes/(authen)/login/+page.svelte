@@ -1,6 +1,17 @@
 <script lang="ts">
 	export let form: any;
     export let logoUrl: string = import.meta.env.VITE_LOGOURL;
+    export const demoUsername: string = import.meta.env.VITE_DEMO_USERNAME;
+    export const demoPassword: string = import.meta.env.VITE_DEMO_PASSWORD;
+
+    export function fillDemoCredentials() {
+        console.log('sadasd')
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        
+            emailInput.value = {demoUsername}; // Demo email
+            passwordInput.value = {demoPassword}; // Demo password
+    }
 </script>
 
 <section class="bg-gray-50 dark:bg-gray-900">
@@ -47,6 +58,10 @@
                               <label for="remember" class="text-gray-500 dark:text-gray-300">Remember me</label>
                             </div>
                         </div> -->
+                        <button type="button" on:click={fillDemoCredentials}>
+                            <a class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Demo Account</a>
+                        </button>
+                        
                         <a href="/forgotpassword" class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</a>
                     </div>
                     <button type="submit" class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>
