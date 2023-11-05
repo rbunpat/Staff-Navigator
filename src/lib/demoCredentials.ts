@@ -1,2 +1,2 @@
-export const demoUsername: string = 'inventorday@rachatat.com'
-export const demoPassword: string = 'inventorday'
+export const demoUsername: string = ''
+export const demoPassword: string = ''
