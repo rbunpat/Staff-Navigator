@@ -1,4 +1,6 @@
+import { redirect } from '@sveltejs/kit';
 import jwt from 'jsonwebtoken'
+
 
 export const load = async ({ cookies }) => {
     const token = cookies.get('token')
@@ -13,7 +15,8 @@ export const load = async ({ cookies }) => {
         }
     }
     if (!token) {
-        const user = false;
-        return { user };
+        // const user = false;
+        // return { user };
+        throw redirect(302, '/login');
     }
 }
