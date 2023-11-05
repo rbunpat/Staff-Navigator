@@ -52,13 +52,20 @@ export const actions = {
         const data = await request.formData()
         const email = data.get('email')
         const password = data.get('password')
+        const passwordConfirm = data.get('confirm-password')
         const caneSerial = data.get('caneserial')
         const token = data.get('cf-turnstile-response')
+
 
         //check turnstile token
         const { success, error } = await validateTurnstileToken(token, import.meta.env.VITE_TURNSTILESECRET)
         if (!success) {
             return fail(400, { captcha: true })
+        }
+
+        //validate password
+        if (password !== passwordConfirm) {
+            return fail(400, { password: true })
         }
 
         //validate data type of user input
@@ -72,7 +79,7 @@ export const actions = {
             return fail(400, { email: true })
         }
 
-        //check if cane serial already exists in db
+        //check if cane serial already esudo xists in db
         const cane = await db.user.findFirst({ where: { caneId: caneSerial } })
         if (cane) {
             return fail(400, { cane: true })
