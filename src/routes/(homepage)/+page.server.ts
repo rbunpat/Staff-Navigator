@@ -8,11 +8,14 @@ export const load = async ({ cookies }) => {
         try {
             const email = jwt.verify(token, import.meta.env.VITE_JWTSECRET).email
             const user = true;
+            throw redirect(302, '/map');
             return { user, email };
         } catch (error) {
             const user = false;
+            throw redirect(302, '/map');
             return { user };
         }
+
     }
     if (!token) {
         // const user = false;
