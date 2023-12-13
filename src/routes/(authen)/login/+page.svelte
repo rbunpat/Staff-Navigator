@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { enhance } from '$app/forms';
 	export let form: any;
     export let logoUrl: string = import.meta.env.VITE_LOGOURL;
     import { demoUsername, demoPassword } from '$lib/demoCredentials';
@@ -8,12 +9,23 @@
         const emailInput: any = document.getElementById('email');
         const passwordInput: any = document.getElementById('password');
         
-            emailInput.value = {demoUsername}; // Demo email
-            passwordInput.value = {demoPassword}; // Demo password
+            emailInput.value = 'inventorday@rachatat.com'; // Demo email
+            passwordInput.value = 'inventordaydemo'; // Demo password
     }
 </script>
+<style>
+    .full-height {
+        min-height: 100vh; /* This will make the div at least the height of the viewport */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* This will center the content vertically */
+    }
+</style>
 
-<section class="bg-gray-50 dark:bg-gray-900">
+
+
+
+<div class="bg-gray-50 dark:bg-gray-900">
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
             <img class="w-8 h-8 mr-2" src={logoUrl} alt="logo">
@@ -39,7 +51,7 @@
 
                 {/if}
 
-                <form class="space-y-4 md:space-y-6" method="POST" action="?/login">
+                <form class="space-y-4 md:space-y-6" method="POST" action="?/login" use:enhance>
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
                         <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="">
@@ -71,7 +83,7 @@
             </div>
         </div>
     </div>
-  </section>
+</div>
 
 <!-- <div class="max-w-md mx-auto my-8 bg-grey-700 p-6 rounded-md shadow-md">
     <h1 class="text-2xl text-white font-bold mb-4">Login</h1>
