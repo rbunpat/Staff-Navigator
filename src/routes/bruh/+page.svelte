@@ -15,8 +15,9 @@
           navigator.geolocation.getCurrentPosition((position) => {
             console.log(position.coords.latitude, position.coords.longitude);
             map = leaflet.map(mapElement).setView([position.coords.latitude, position.coords.longitude], 13);
-            leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-              attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            leaflet.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaGFtYnVyZ3oiLCJhIjoiY2xzM2RtMnI2MHdseDJqbnE0ZGJmMnY2biJ9.WLt8IY_40m9MGFARk9yBwA', {
+              attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+              tileSize: 512,
           }).addTo(map);
             leaflet.marker([position.coords.latitude, position.coords.longitude]).addTo(map)
               .bindPopup(`Latest Tracker Location at`)
