@@ -1,10 +1,13 @@
 <script lang="ts">
   import { onMount, onDestroy } from 'svelte';
   import { browser } from '$app/environment';
+  import "leaflet/dist/images/marker-shadow.png";
 
   let mapElement: any;
   let map: any;
   let marker: any;
+
+
 
   onMount(async () => {
     if (browser) {
