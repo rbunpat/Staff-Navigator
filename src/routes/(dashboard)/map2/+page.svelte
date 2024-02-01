@@ -6,6 +6,7 @@
   let mapElement: any;
   let map: any;
   let marker: any;
+  let popupString: string;
 
 
 
@@ -16,12 +17,15 @@
       navigator.geolocation.getCurrentPosition(
         (position) => {
           map = leaflet.map(mapElement).setView([position.coords.latitude, position.coords.longitude], 13);
+          map.invalidateSize(true);
           leaflet.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaGFtYnVyZ3oiLCJhIjoiY2xzM2RtMnI2MHdseDJqbnE0ZGJmMnY2biJ9.WLt8IY_40m9MGFARk9yBwA', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
           }).addTo(map);
 
+          popupString = `Latest Tracker Location <br> <a href="https://www.google.com/maps/search/?api=1&query=${position.coords.latitude},${position.coords.longitude}">Open in Google Maps</a>`;
+
           marker = leaflet.marker([position.coords.latitude, position.coords.longitude]).addTo(map)
-            .bindPopup('Latest Tracker Location at')
+            .bindPopup(popupString)
             .openPopup();
 
           // Update marker every 2 seconds
@@ -53,6 +57,7 @@
     }
   });
 </script>
+
 
 <main>
   <div bind:this={mapElement}></div>
