@@ -8,7 +8,7 @@
 
   async function fetchData() {
     try {
-      const response = await fetch('http://34.87.92.34:3333/getlocation'); // Replace with your API endpoint
+      const response = await fetch('https://asdasd.rachatat.com/getlocation'); // Replace with your API endpoint
       const data = await response.json();
 
       return data;
