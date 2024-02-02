@@ -36,7 +36,7 @@
         popupString = `Latest Tracker Location <br> <a href="https://www.google.com/maps/search/?api=1&query=${lat},${long}">Open in Google Maps</a>`;
 
         marker = leaflet.marker([lat, long]).addTo(map)
-          .bindPopup('Latest Tracker Location at')
+          .bindPopup(popupString)
           .openPopup();
 
         // Update marker every 2 seconds
