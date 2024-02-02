@@ -5,10 +5,11 @@
   let mapElement: any;
   let map: any;
   let marker: any;
+  let popupText: string;
 
   async function fetchData() {
     try {
-      const response = await fetch('https://asdasd.rachatat.com/getlocation'); // Replace with your API endpoint
+      const response = await fetch('http://34.87.92.34:3333/getlocation'); // Replace with your API endpoint
       const data = await response.json();
 
       return data;
@@ -32,6 +33,8 @@
           attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         }).addTo(map);
 
+        popupString = `Latest Tracker Location <br> <a href="https://www.google.com/maps/search/?api=1&query=${lat},${long}">Open in Google Maps</a>`;
+
         marker = leaflet.marker([lat, long]).addTo(map)
           .bindPopup('Latest Tracker Location at')
           .openPopup();
@@ -42,7 +45,7 @@
 
           if (newData) {
             const { lat: newLat, long: newLon } = newData;
-            const newLatLng = [newLat, newLon];
+            const newLatLng = [newLat, newLon]
             marker.setLatLng(newLatLng);
           }
         }, 200);
