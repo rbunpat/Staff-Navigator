@@ -5,7 +5,7 @@
   let mapElement: any;
   let map: any;
   let marker: any;
-  let popupText: string;
+  let popupString: string;
 
   async function fetchData() {
     try {
