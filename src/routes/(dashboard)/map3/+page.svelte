@@ -8,7 +8,7 @@
 
   async function fetchData() {
     try {
-      const response = await fetch('https://your-api-endpoint'); // Replace with your API endpoint
+      const response = await fetch('http://34.87.92.34:3333/getlocation'); // Replace with your API endpoint
       const data = await response.json();
 
       return data;
@@ -25,14 +25,14 @@
       const initialData = await fetchData();
 
       if (initialData) {
-        const { lat, lon } = initialData;
+        const { lat, long } = initialData;
 
-        map = leaflet.map(mapElement).setView([lat, lon], 13);
+        map = leaflet.map(mapElement).setView([lat, long], 13);
         leaflet.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaGFtYnVyZ3oiLCJhIjoiY2xzM2RtMnI2MHdseDJqbnE0ZGJmMnY2biJ9.WLt8IY_40m9MGFARk9yBwA', {
           attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         }).addTo(map);
 
-        marker = leaflet.marker([lat, lon]).addTo(map)
+        marker = leaflet.marker([lat, long]).addTo(map)
           .bindPopup('Latest Tracker Location at')
           .openPopup();
 
@@ -41,11 +41,11 @@
           const newData = await fetchData();
 
           if (newData) {
-            const { lat: newLat, lon: newLon } = newData;
+            const { lat: newLat, long: newLon } = newData;
             const newLatLng = [newLat, newLon];
             marker.setLatLng(newLatLng);
           }
-        }, 2000);
+        }, 200);
       }
     }
   });
@@ -57,6 +57,7 @@
     }
   });
 </script>
+
 
 <main>
   <div bind:this={mapElement}></div>
