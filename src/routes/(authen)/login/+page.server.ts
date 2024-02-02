@@ -9,7 +9,7 @@ export const load = async ({ cookies }) => {
 	// redirect user if logged in
     const token = cookies.get('token')
     if (token) {
-        throw redirect(302, '/map')
+        throw redirect(302, '/map3')
     }
 }
 
@@ -42,6 +42,6 @@ export const actions = {
         cookies.set('token', token, { path: '/' })
 
         //redirect user to dashboard
-        throw redirect(302, '/')
+        throw redirect(302, '/map3')
     }
 }
