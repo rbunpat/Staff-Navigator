@@ -48,7 +48,7 @@
             const newLatLng = [newLat, newLon]
             marker.setLatLng(newLatLng);
           }
-        }, 200);
+        }, 1000);
       }
     }
   });
