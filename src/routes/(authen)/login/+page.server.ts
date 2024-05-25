@@ -9,7 +9,7 @@ export const load = async ({ cookies }) => {
 	// redirect user if logged in
     const token = cookies.get('token')
     if (token) {
-        throw redirect(302, '/map3')
+        throw redirect(302, '/map')
     }
 }
 
