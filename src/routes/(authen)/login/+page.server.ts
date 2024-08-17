@@ -42,6 +42,6 @@ export const actions = {
         cookies.set('token', token, { path: '/' })
 
         //redirect user to dashboard
-        throw redirect(302, '/map3')
+        throw redirect(302, '/map')
     }
 }
